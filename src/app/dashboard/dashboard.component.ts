@@ -31,7 +31,7 @@ export class DashboardComponent {
   );
   
   public sort_text_area(input_values: string, size_value: string) {
-    const regex = /\d+/g;
+    const regex = /\d+/g
     const matches = input_values.match(regex);
     let i = 0;
     let arr = [0];
@@ -49,7 +49,7 @@ export class DashboardComponent {
       this.sorted_array.length = size;
       alert(`
         Tamanho: ${size}
-        \nNumeros ordenados: [${this.sorted_array}]
+        \nNumeros ordenados: [${this.remove_empty_values(this.sorted_array)}]
       `)
     }
   }
@@ -58,7 +58,13 @@ export class DashboardComponent {
     return a.sort((a, b) => a - b)
       .filter(function(item, pos, arr) {
         return !pos || item != arr[pos - 1];
-      });  
+      }); 
+  }
+
+  private remove_empty_values(a:number[]){
+    return a.filter(function (item) {
+      return item != null;
+    }); 
   }
 
   private checkIfSomeValueIsOutOfTheCondition(arr: number[]): boolean{

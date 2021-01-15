@@ -19,7 +19,7 @@
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
-            Entrada
+            Entrada (não está aceitando menores que 0)
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
@@ -31,8 +31,8 @@
           </form>
           <form class="form">
             <mat-form-field class="full-width" style="width: 100%;">
-              <mat-label>Insira os numeros entre -1000 e 1000</mat-label>
-              <textarea matInput placeholder="-1000 a 1000" min="-1000" max="1000" type="number"  pattern="[0-9]*"
+              <mat-label>Insira os numeros entre -1000 e 1000 </mat-label>
+              <textarea matInput placeholder="-1000 a 1000" min="-1000" max="1000" type="number"
                 required
                 #values
                 style="min-height: 100px;"
