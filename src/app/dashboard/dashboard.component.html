@@ -1,0 +1,47 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+  <mat-grid-list cols="2" rowHeight="350px">
+    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            {{card.title}}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div style="margin-top: 50px; font-size: large; text-align:justify;">
+            {{card.problem}}
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile >
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Entrada
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <form class="form">
+            <mat-form-field class="full-width" style="width: 100%;">
+              <mat-label>Defina um tamaho para o array</mat-label>
+              <input matInput placeholder="Insira um numero entre 1 e 1000" value="1" min="1" max="1000" type="number" #size>
+            </mat-form-field>
+          </form>
+          <form class="form">
+            <mat-form-field class="full-width" style="width: 100%;">
+              <mat-label>Insira os numeros entre -1000 e 1000</mat-label>
+              <textarea matInput placeholder="-1000 a 1000" min="-1000" max="1000" type="number"  pattern="[0-9]*"
+                required
+                #values
+                style="min-height: 100px;"
+              ></textarea>
+            </mat-form-field>
+            <button (click)='sort_text_area(values.value, size.value)' type="button">Ordenar</button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
