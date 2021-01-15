@@ -26,7 +26,7 @@
           <form class="form">
             <mat-form-field class="full-width" style="width: 100%;">
               <mat-label>Defina um tamaho para o array</mat-label>
-              <input matInput placeholder="Insira um numero entre 1 e 1000" value="1" min="1" max="1000" type="number" #size>
+              <input matInput placeholder="Insira um numero entre 1 e 1000" value="1" min="1" max="1000" type="number" #size required>
             </mat-form-field>
           </form>
           <form class="form">
@@ -38,7 +38,7 @@
                 style="min-height: 100px;"
               ></textarea>
             </mat-form-field>
-            <button (click)='sort_text_area(values.value, size.value)' type="button">Ordenar</button>
+            <button (click)='sort_text_area(values.value, size.value)' type="button" mat-raised-button color="accent">Ordenar</button>
           </form>
         </mat-card-content>
       </mat-card>

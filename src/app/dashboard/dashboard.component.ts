@@ -35,17 +35,23 @@ export class DashboardComponent {
     const matches = input_values.match(regex);
     let i = 0;
     let arr = [0];
-    let size = parseInt(size_value);
-    matches?.every(element => {
-      if(i<size){
+    let size = parseInt(size_value);    
+
+    matches?.forEach(element => {
         arr[i++] = parseInt(element);
-        return true;
-      }else
-        return false;
     })
 
-    this.sorted_array = this.unique_value_and_sort(arr);
-    alert(`Numeros ordenados ${this.sorted_array}`)
+    if(this.checkIfSomeValueIsOutOfTheCondition(arr)){
+      alert(`AVISO: numero maior que 1000 ou menor que -1000 encontrado`);
+      return;
+    }else{
+      this.sorted_array = this.unique_value_and_sort(arr);
+      this.sorted_array.length = size;
+      alert(`
+        Tamanho: ${size}
+        \nNumeros ordenados: [${this.sorted_array}]
+      `)
+    }
   }
 
   private unique_value_and_sort(a:number[]) {
@@ -53,6 +59,13 @@ export class DashboardComponent {
       .filter(function(item, pos, arr) {
         return !pos || item != arr[pos - 1];
       });  
+  }
+
+  private checkIfSomeValueIsOutOfTheCondition(arr: number[]): boolean{
+    for(let i = 0; i < arr.length; i++)
+      if(arr[i]>1000 || arr[i]<-1000)
+        return true
+    return false
   }
 
   constructor(private breakpointObserver: BreakpointObserver) {}
