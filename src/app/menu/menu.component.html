@@ -5,6 +5,9 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
+      <a mat-list-item [routerLink]="['/dashboard']" routerLinkActive="router-link-active">Dashboard</a>
+      <a mat-list-item [routerLink]="['/problem1']" routerLinkActive="router-link-active">Problema 1</a>
+      <a mat-list-item [routerLink]="['/problem2']" routerLinkActive="router-link-active">Problema 2</a>
       <a mat-list-item href="https://github.com/matcs/digistarts-teste" target="_blank">Codigo do GitHub</a>
     </mat-nav-list>
   </mat-sidenav>
@@ -20,6 +23,6 @@
       </button>
       <span>digistarts-test</span>
     </mat-toolbar>
-    <ng-content></ng-content>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -18,12 +18,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { Problem1Component } from './problem1/problem1.component';
+import { Problem2Component } from './problem2/problem2.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     DashboardComponent,
+    Problem1Component,
+    Problem2Component,
     
   ],
   imports: [
