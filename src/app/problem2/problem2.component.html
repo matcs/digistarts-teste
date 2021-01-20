@@ -20,5 +20,39 @@
         </mat-card-content>
       </mat-card>
     </mat-grid-tile>
+    <mat-grid-tile [colspan]="2">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Solução
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <form class="form">
+            <mat-form-field class="full-width">
+              <mat-label>Valor 1</mat-label>
+              <input matInput placeholder="Ex. 1" type="number" value="0" #fvalue>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Operations</mat-label>
+              <mat-select [(ngModel)]="selectedValue" name="operation">
+                <mat-option *ngFor="let operation of operations" [value]="operation.value">
+                  {{operation.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+              <mat-label>Valor 2</mat-label>
+              <input matInput placeholder="Ex. 1" type="number" value="0" #svalue>
+            </mat-form-field>
+          </form>
+          
+          <br/>
+
+          <button mat-flat-button color="accent" (click)="calc(fvalue.value,svalue.value)">Calcular</button>
+          <h2>{{binaryValue}}</h2>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
   </mat-grid-list>
 </div>

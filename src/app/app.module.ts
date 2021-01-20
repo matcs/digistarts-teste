@@ -18,6 +18,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
 import { Problem1Component } from './problem1/problem1.component';
 import { Problem2Component } from './problem2/problem2.component';
 import { FormsModule } from '@angular/forms';
@@ -47,6 +48,7 @@ import { FormsModule } from '@angular/forms';
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
+    MatSelectModule
   ],
   exports: [
     MatButtonModule,

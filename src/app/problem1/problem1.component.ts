@@ -7,6 +7,7 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
   templateUrl: './problem1.component.html',
   styleUrls: ['./problem1.component.scss']
 })
+
 export class Problem1Component implements OnInit{
   sorted_numbers: number[] | undefined;
   arr_size: number | undefined;
