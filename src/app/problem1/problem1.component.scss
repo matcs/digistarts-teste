@@ -8,6 +8,8 @@
   left: 15px;
   right: 15px;
   bottom: 15px;
+  height: 100%;
+  margin-bottom: auto;
 }
 
 .more-button {
@@ -18,4 +20,14 @@
 
 .dashboard-card-content {
   text-align: center;
+}
+
+.form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
 }
