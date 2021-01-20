@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 
@@ -7,27 +7,34 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
   templateUrl: './problem1.component.html',
   styleUrls: ['./problem1.component.scss']
 })
-export class Problem1Component {
-  /** Based on the screen size, switch from standard to one column per row */
+export class Problem1Component implements OnInit{
+  textArea: string | undefined;
+
+  ngOnInit(): void {
+    this.textArea = '';
+  }
+
+  public extractNumbers(text: string): void{
+    const extractedNumbers = text.match(/-?\d+/g)!.map(Number);
+    console.log(extractedNumbers);
+  }
+
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
-        ];
+          { title: 'Problema', cols: 1, rows: 1 },
+          { title: 'Entrada', cols: 1, rows: 1 },
+        ]; 
       }
 
       return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
+        { title: 'Problema', cols: 1, rows: 1 },
+        { title: 'Entrada', cols: 1, rows: 1 },
       ];
     })
   );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+  
 }
